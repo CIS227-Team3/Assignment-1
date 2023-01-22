@@ -6,6 +6,8 @@
 #include <cfloat>
 #include <iostream>
 
+using namespace std;
+
 class Triangle {
 public:
 	Triangle(float sideA, float sideB);
