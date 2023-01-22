@@ -28,16 +28,13 @@ float MenuOptions::validateFloat(float input)
     return input;
 }
 
-char MenuOptions::promptUserInput()
+short int MenuOptions::promptUserInput()
 {
-    char userInput;
+    short int userInput;
 
     // prompts user to enter command
-    cout << "Please enter a command or X to exit the program" << endl;
+    cout << "Please enter a command or 0 to exit the program" << endl;
     cin >> userInput;
-
-    // converts input to uppercase letter
-    userInput = toupper(userInput);
 
     return userInput;
 }
