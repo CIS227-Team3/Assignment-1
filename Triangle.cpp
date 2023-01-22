@@ -1,12 +1,4 @@
-/*
- * Triangle.cpp
- *
- *  Created on: Jan 13, 2023
- *      Author: Alicia Rogers
- */
-
 #include "Triangle.h"
-#include <cfenv>
 
 Triangle::Triangle(float sideA, float sideB) {
 	this-> sideA = sideA;
