@@ -21,7 +21,6 @@ public:
     void promptAndCalculatePrism();
 
 private:
-    float input;
     void printAndClearError();
     float validateFloat(float input);
 };
