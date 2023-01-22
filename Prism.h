@@ -1,12 +1,12 @@
-/*
- * Prism.h
- *
- *  Created on: Jan 13, 2023
- *      Author: Alicia Rogers
- */
-
 #ifndef PRISM_H_
 #define PRISM_H_
+
+#include <cmath>
+#include <cfenv>
+#include <cfloat>
+#include <iostream>
+
+using namespace std;
 
 class Prism {
 public:
