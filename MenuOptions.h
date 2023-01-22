@@ -15,13 +15,14 @@ using namespace std;
 class MenuOptions {
 public:
     MenuOptions();
-    char promptUserInput();
+    short int promptUserInput();
+    short int validateMenuOption();
     void promptAndCalculateTrapezoid();
     void promptAndCalculateTriangle();
     void promptAndCalculatePrism();
 
 private:
-    void printAndClearError();
+    void printAndClearError(bool isMenu);
     float validateFloat(float input);
 };
 
