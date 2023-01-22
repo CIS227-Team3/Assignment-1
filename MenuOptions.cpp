@@ -11,25 +11,27 @@ void MenuOptions::printAndClearError(bool isMenu = false)
         cout << "Input cannot be 0, negative, non-numeric, or out-of-range. Please enter a positive value." << endl;
     }
 
-    feclearexcept(FE_OVERFLOW); // clears exception flag if overflow is detected.
-    // reference https://www.alphacodingskills.com/cpp/notes/cpp-cfenv-fe-overflow.php
-
-    feclearexcept(FE_UNDERFLOW); // clears exception flag if underflow is detected.
-    // reference https://www.alphacodingskills.com/cpp/notes/cpp-cfenv-fe-overflow.php
+    feclearexcept(FE_ALL_EXCEPT); // clears exception flag if overflow or underflow is detected.
+	// reference https://www.alphacodingskills.com/cpp/notes/cpp-cfenv-fe-overflow.php
 
     cin.clear();  // clears error state if the user entered a string or char. https://cplusplus.com/forum/general/207458/
     cin.ignore(1000, '\n'); // clears the input causing error from stream. https://cplusplus.com/forum/general/207458/
 }
 
-float MenuOptions::validateFloat(float input)
+float MenuOptions::getAndValidateFloat()
 {
-    // tests that input is positive and does not extend past too many decimal places for floats.
+    float input;
+
+	cin >> input;
+    
+	// tests that input is positive and does not extend past too many decimal places for floats.
     // reference https://www.alphacodingskills.com/cpp/notes/cpp-cfenv-fe-overflow.php
-    while (input <= 0.00 || fetestexcept(FE_OVERFLOW) || fetestexcept(FE_UNDERFLOW))
-    {
-        printAndClearError();
-        cin >> input;
-    }
+
+	while (input <= 0.00 || fetestexcept(FE_ALL_EXCEPT)) {
+		printAndClearError();
+		cin >> input;
+	}
+
     return input;
 }
 
@@ -65,24 +67,21 @@ void MenuOptions::promptAndCalculateTrapezoid()
 
     // gets the length of base 1 from the user
     cout << "Please enter a value for base 1: " << endl;
-    cin >> base1;
 
     // ensures that value entered is positive
-    base1 = validateFloat(base1);
+    base1 = getAndValidateFloat();
 
     // gets the length of base 2 from the user
     cout << "Please enter a value for base 2: " << endl;
-    cin >> base2;
 
     // ensures that value entered is positive
-    base2 = validateFloat(base2);
+    base2 = getAndValidateFloat();
 
     // gets the height from the user
     cout << "Please enter a value for the height: " << endl;
-    cin >> height;
-
+   
     // ensures that value entered is positive
-    height = validateFloat(height);
+    height = getAndValidateFloat();
 
     // creates an instance of a trapezoid object
     Trapezoid trapezoid = Trapezoid(base1, base2, height);
@@ -103,17 +102,15 @@ void MenuOptions::promptAndCalculateTriangle()
 
     // gets the length of side 1 from the user
     cout << "Please enter a value for side 1: " << endl;
-    cin >> side1;
-
+    
     // ensures that value entered is positive
-    side1 = validateFloat(side1);
+    side1 = getAndValidateFloat();
 
     // gets the length of side 2 from the user
     cout << "Please enter a value for side 2: " << endl;
-    cin >> side2;
-
+    
     // ensures that value entered is positive
-    side2 = validateFloat(side2);
+    side2 = getAndValidateFloat();
 
     // creates an instance of a triangle object
     Triangle triangle = Triangle(side1, side2);
@@ -135,24 +132,21 @@ void MenuOptions::promptAndCalculatePrism()
 
     // gets the value of the length from the user
     cout << "Please enter a value for length: " << endl;
-    cin >> length;
-
+    
     // ensures that value entered is positive
-    length = validateFloat(length);
+    length = getAndValidateFloat();
 
     // gets the value of the width from the user
     cout << "Please enter a value for width: " << endl;
-    cin >> width;
-
+    
     // ensures that value entered is positive
-    width = validateFloat(width);
+    width = getAndValidateFloat();
 
     // gets the height from the user
     cout << "Please enter a value for the height: " << endl;
-    cin >> height;
-
+    
     // ensures that value entered is positive
-    height = validateFloat(height);
+    height = getAndValidateFloat();
 
     // creates an instance of a prism object
     Prism prism = Prism(length, width, height);
