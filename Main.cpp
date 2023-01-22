@@ -8,36 +8,34 @@ MenuOptions options;
 
 int main()
 {
-    char userInput;
+    short int userInput;
 
-    // runs main until userInput is x for 'exit'
-    // userInput of 'h' or 'H' calculates the hypotenuse of a triangle
-    // userInput of 't' or 'T' calculates the area of a trapezoid
-    // userInput of 'p' or 'P' calculates the volume of a prism
-    cout << "Please enter X to exit the program." << endl;
-    cout << "Please enter H to calculate the hypotenuse of a triangle." << endl;
-    cout << "Please enter T to calculate the area of a trapezoid." << endl;
-    cout << "Please enter P to calculate the volume of a prism." << endl;
+    // runs main until userInput is 0 for 'exit'
+    // userInput of 1 calculates the hypotenuse of a triangle
+    // userInput of 2 calculates the area of a trapezoid
+    // userInput of 3 calculates the volume of a prism
+    cout << "0. Please enter 0 to exit the program." << endl;
+    cout << "1. Please enter 1 to calculate the hypotenuse of a triangle." << endl;
+    cout << "2. Please enter 2 to calculate the area of a trapezoid." << endl;
+    cout << "3. Please enter 3 to calculate the volume of a prism." << endl;
 
     cin >> userInput;
 
-    userInput = toupper(userInput);
-
-    while (userInput != 'X')
+    while (userInput != 0)
     {
         switch (userInput)
         {
-            case 'H':
+            case 1:
                 options.promptAndCalculateTriangle();
                 break;
-            case 'T':
+            case 2:
                 options.promptAndCalculateTrapezoid();
                 break;
-            case 'P':
+            case 3:
                 options.promptAndCalculatePrism();
                 break;
             default:
-                cout << "Input is not a recognized command. Please enter X to exit, or H, T, or P." << endl;
+                cout << "Input is not a recognized command. Please enter 0 to exit, or 1, 2, or 3." << endl;
                 break;
         }
 
