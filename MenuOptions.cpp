@@ -2,16 +2,21 @@
 
 MenuOptions::MenuOptions() {}
 
-void MenuOptions::printAndClearError()
+void MenuOptions::printAndClearError(bool isMenu = false)
 {
-    cout << "Input cannot be 0, negative, non-numeric, or out-of-range. Please enter a positive value." << endl;
-   
+    if(isMenu){
+        cout << "Input cannot negative, non-numeric, or out-of-range. Please enter a positive value." << endl;
+    }
+    else{
+        cout << "Input cannot be 0, negative, non-numeric, or out-of-range. Please enter a positive value." << endl;
+    }
+
     feclearexcept(FE_OVERFLOW); // clears exception flag if overflow is detected.
     // reference https://www.alphacodingskills.com/cpp/notes/cpp-cfenv-fe-overflow.php
-    
+
     feclearexcept(FE_UNDERFLOW); // clears exception flag if underflow is detected.
     // reference https://www.alphacodingskills.com/cpp/notes/cpp-cfenv-fe-overflow.php
-    
+
     cin.clear();  // clears error state if the user entered a string or char. https://cplusplus.com/forum/general/207458/
     cin.ignore(1000, '\n'); // clears the input causing error from stream. https://cplusplus.com/forum/general/207458/
 }
@@ -37,6 +42,18 @@ short int MenuOptions::promptUserInput()
     cin >> userInput;
 
     return userInput;
+}
+
+// reference https://cplusplus.com/forum/beginner/261201/#msg1131559
+short int MenuOptions::validateMenuOption() {
+    short int input;
+    while(true){
+        if (std::cin >> input) { // if the user entered an integer
+            return input;
+        } else {
+            printAndClearError(true);
+        }
+    }
 }
 
 void MenuOptions::promptAndCalculateTrapezoid()

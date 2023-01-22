@@ -16,12 +16,13 @@ class MenuOptions {
 public:
     MenuOptions();
     short int promptUserInput();
+    short int validateMenuOption();
     void promptAndCalculateTrapezoid();
     void promptAndCalculateTriangle();
     void promptAndCalculatePrism();
 
 private:
-    void printAndClearError();
+    void printAndClearError(bool isMenu);
     float validateFloat(float input);
 };
 

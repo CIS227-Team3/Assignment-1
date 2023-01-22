@@ -19,7 +19,7 @@ int main()
     cout << "2. Please enter 2 to calculate the area of a trapezoid." << endl;
     cout << "3. Please enter 3 to calculate the volume of a prism." << endl;
 
-    cin >> userInput;
+    userInput = options.validateMenuOption();
 
     while (userInput != 0)
     {
