@@ -1,12 +1,12 @@
-/*
- * Trapezoid.h
- *
- *  Created on: Jan 13, 2023
- *      Author: Alicia Rogers
- */
-
 #ifndef TRAPEZOID_H_
 #define TRAPEZOID_H_
+
+#include <cmath>
+#include <cfenv>
+#include <cfloat>
+#include <iostream>
+
+using namespace std;
 
 class Trapezoid {
 public:

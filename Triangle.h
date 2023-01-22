@@ -1,14 +1,12 @@
-/*
- * Triangle.h
- *
- *  Created on: Jan 13, 2023
- *      Author: Alicia Rogers
- */
-
 #ifndef TRIANGLE_H_
 #define TRIANGLE_H_
 
 #include <cmath>
+#include <cfenv>
+#include <cfloat>
+#include <iostream>
+
+using namespace std;
 
 class Triangle {
 public:

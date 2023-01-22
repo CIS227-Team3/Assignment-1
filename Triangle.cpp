@@ -1,12 +1,4 @@
-/*
- * Triangle.cpp
- *
- *  Created on: Jan 13, 2023
- *      Author: Alicia Rogers
- */
-
 #include "Triangle.h"
-#include <cfenv>
 
 Triangle::Triangle(float sideA, float sideB) {
 	this-> sideA = sideA;
@@ -16,10 +8,14 @@ Triangle::Triangle(float sideA, float sideB) {
 
 float Triangle::calcHyp() {
 
-	hypotenuse = sqrt((sideA * sideA) + (sideB * sideB));
+	hypotenuse = sqrt(pow(sideA, 2) + pow(sideB, 2));
 
-	if (fe_testexcept(FE_ALL_EXCEPT)) {
-
+	// tests to see if any exceptions were thrown during the calculation
+	if (fetestexcept(FE_OVERFLOW) || fetestexcept(FE_UNDERFLOW)) {
+		hypotenuse = 0.0;
+		cout << "Result is out of range" << endl;
+		feclearexcept(FE_ALL_EXCEPT); // resets exception flags
+		// reference https://www.alphacodingskills.com/cpp/notes/cpp-cfenv-fe-overflow.php
 	}
 
 	return hypotenuse;

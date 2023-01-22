@@ -1,10 +1,3 @@
-/*
- * Main.cpp
- *
- *  Created on: Jan 13, 2023
- *      Author: Alicia Rogers
- */
-
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -25,6 +18,10 @@ using namespace std;
 void printAndClearError()
 {
 	cout << "Input cannot be 0, negative, non-numeric, or out-of-range. Please enter a positive value." << endl;
+	feclearexcept(FE_OVERFLOW); // clears exception flag if overflow is detected.
+	// reference https://www.alphacodingskills.com/cpp/notes/cpp-cfenv-fe-overflow.php
+	feclearexcept(FE_UNDERFLOW); // clears exception flag if underflow is detected.
+	// reference https://www.alphacodingskills.com/cpp/notes/cpp-cfenv-fe-overflow.php
 	cin.clear();  // clears error state if the user entered a string or char. https://cplusplus.com/forum/general/207458/
 	cin.ignore(); // clears the input causing error from stream. https://cplusplus.com/forum/general/207458/
 }
@@ -196,7 +193,9 @@ void promptAndCalculateTrapezoid()
 
 float validateFloat(float input)
 {
-	while (input <= 0.00 || input > 3.4e38)
+	while (input <= 0.00 || fetestexcept(FE_OVERFLOW) || fetestexcept(FE_UNDERFLOW))
+	// tests that input is positive and does not extend past too many decimal places for floats.
+	// reference https://www.alphacodingskills.com/cpp/notes/cpp-cfenv-fe-overflow.php
 	{
 		printAndClearError();
 		cin >> input;
