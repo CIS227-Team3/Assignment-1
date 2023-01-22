@@ -15,7 +15,7 @@ using namespace std;
 class MenuOptions {
 public:
     MenuOptions();
-    char promptUserInput();
+    short int promptUserInput();
     void promptAndCalculateTrapezoid();
     void promptAndCalculateTriangle();
     void promptAndCalculatePrism();
