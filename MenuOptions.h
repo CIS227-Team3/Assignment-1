@@ -23,7 +23,7 @@ public:
 
 private:
     void printAndClearError(bool isMenu);
-    float validateFloat(float input);
+    float getAndValidateFloat();
 };
 
 
