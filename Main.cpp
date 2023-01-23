@@ -1,6 +1,13 @@
 #include <iostream>
 #include <string>
 #include "MenuOptions.h"
+#include "MenuOptions.cpp"
+#include "Triangle.h"
+#include "Trapezoid.h"
+#include "Prism.h"
+#include "Prism.cpp"
+#include "Trapezoid.cpp"
+#include "Triangle.cpp"
 
 using namespace std;
 
