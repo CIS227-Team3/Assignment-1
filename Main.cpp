@@ -36,7 +36,6 @@ int main()
                 break;
             default:
                 cout << "Input is not a recognized command. Please enter 0 to exit, or 1, 2, or 3." << endl;
-                userInput = options.promptUserInput();
                 break;
         }
 
