@@ -11,11 +11,10 @@ void MenuOptions::printAndClearError(bool isMenu = false)
         cout << "Input cannot be 0, negative, non-numeric, or out-of-range. Please enter a positive value." << endl;
     }
 
-    feclearexcept(FE_ALL_EXCEPT); // clears exception flag if overflow or underflow is detected.
-	// reference https://www.alphacodingskills.com/cpp/notes/cpp-cfenv-fe-overflow.php
-
-    cin.clear();  // clears error state if the user entered a string or char. https://cplusplus.com/forum/general/207458/
-    cin.ignore(1000, '\n'); // clears the input causing error from stream. https://cplusplus.com/forum/general/207458/
+    cin.clear();  // clears error state if the user entered a string or char. 
+	// reference: https://cplusplus.com/forum/general/207458/
+    cin.ignore(1000, '\n'); // clears the input causing error from stream. 
+	// reference: https://cplusplus.com/forum/general/207458/
 }
 
 float MenuOptions::getAndValidateFloat()
@@ -27,7 +26,7 @@ float MenuOptions::getAndValidateFloat()
 	// tests that input is positive and does not extend past too many decimal places for floats.
     // reference https://www.alphacodingskills.com/cpp/notes/cpp-cfenv-fe-overflow.php
 
-	while (input <= 0.00 || fetestexcept(FE_ALL_EXCEPT)) {
+	while (input <= 0.00 || (!std::cin)) {
 		printAndClearError();
 		cin >> input;
 	}
