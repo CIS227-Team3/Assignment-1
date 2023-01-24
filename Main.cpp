@@ -1,17 +1,18 @@
 #include <iostream>
 #include <string>
 #include "MenuOptions.h"
-#include "MenuOptions.cpp"
+//#include "MenuOptions.cpp"
+#include "Validations.h"
+//#include "validations.cpp"
 #include "Triangle.h"
 #include "Trapezoid.h"
 #include "Prism.h"
-#include "Prism.cpp"
-#include "Trapezoid.cpp"
-#include "Triangle.cpp"
+//#include "Prism.cpp"
+//#include "Trapezoid.cpp"
+//#include "Triangle.cpp"
+// Commented out for compiler differences
 
 using namespace std;
-
-MenuOptions options;
 
 int main()
 {
@@ -26,27 +27,27 @@ int main()
     cout << "2. Please enter 2 to calculate the area of a trapezoid." << endl;
     cout << "3. Please enter 3 to calculate the volume of a prism." << endl;
 
-    userInput = options.validateMenuOption();
+    userInput = Validations::validateMenuOption();
 
     while (userInput != 0)
     {
         switch (userInput)
         {
             case 1:
-                options.promptAndCalculateTriangle();
+                MenuOptions::promptAndCalculateTriangle();
                 break;
             case 2:
-                options.promptAndCalculateTrapezoid();
+                MenuOptions::promptAndCalculateTrapezoid();
                 break;
             case 3:
-                options.promptAndCalculatePrism();
+                MenuOptions::promptAndCalculatePrism();
                 break;
             default:
                 cout << "Input is not a recognized command. Please enter 0 to exit, or 1, 2, or 3." << endl;
                 break;
         }
 
-        userInput = options.promptUserInput();
+        userInput = MenuOptions::promptUserInput();
     }
 
     cout << "Exiting program. Goodbye!" << endl;

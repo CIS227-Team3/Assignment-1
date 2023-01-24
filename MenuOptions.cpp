@@ -1,8 +1,7 @@
 #include "MenuOptions.h"
+#include "Validations.h"
 
-MenuOptions::MenuOptions() {}
-
-void MenuOptions::printAndClearError(bool isMenu = false)
+void MenuOptions::printAndClearError(bool isMenu)
 {
     if(isMenu){
         cout << "Input cannot negative, non-numeric, or out-of-range. Please enter a positive value." << endl;
@@ -40,21 +39,9 @@ short int MenuOptions::promptUserInput()
 
     // prompts user to enter command
     cout << "Please enter a command or 0 to exit the program" << endl;
-    userInput = validateMenuOption();
+    userInput = Validations::validateMenuOption();
 
     return userInput;
-}
-
-// reference https://cplusplus.com/forum/beginner/261201/#msg1131559
-short int MenuOptions::validateMenuOption() {
-    short int input;
-    while(true){
-        if (std::cin >> input) { // if the user entered an integer
-            return input;
-        } else {
-            printAndClearError(true);
-        }
-    }
 }
 
 void MenuOptions::promptAndCalculateTrapezoid()
@@ -68,19 +55,19 @@ void MenuOptions::promptAndCalculateTrapezoid()
     cout << "Please enter a value for base 1: " << endl;
 
     // ensures that value entered is positive
-    base1 = getAndValidateFloat();
+    base1 = Validations::getAndValidateFloat();
 
     // gets the length of base 2 from the user
     cout << "Please enter a value for base 2: " << endl;
 
     // ensures that value entered is positive
-    base2 = getAndValidateFloat();
+    base2 = Validations::getAndValidateFloat();
 
     // gets the height from the user
     cout << "Please enter a value for the height: " << endl;
 
     // ensures that value entered is positive
-    height = getAndValidateFloat();
+    height = Validations::getAndValidateFloat();
 
     // creates an instance of a trapezoid object
     Trapezoid trapezoid = Trapezoid(base1, base2, height);
@@ -103,13 +90,13 @@ void MenuOptions::promptAndCalculateTriangle()
     cout << "Please enter a value for side 1: " << endl;
 
     // ensures that value entered is positive
-    side1 = getAndValidateFloat();
+    side1 = Validations::getAndValidateFloat();
 
     // gets the length of side 2 from the user
     cout << "Please enter a value for side 2: " << endl;
 
     // ensures that value entered is positive
-    side2 = getAndValidateFloat();
+    side2 = Validations::getAndValidateFloat();
 
     // creates an instance of a triangle object
     Triangle triangle = Triangle(side1, side2);
@@ -133,19 +120,19 @@ void MenuOptions::promptAndCalculatePrism()
     cout << "Please enter a value for length: " << endl;
 
     // ensures that value entered is positive
-    length = getAndValidateFloat();
+    length = Validations::getAndValidateFloat();
 
     // gets the value of the width from the user
     cout << "Please enter a value for width: " << endl;
 
     // ensures that value entered is positive
-    width = getAndValidateFloat();
+    width = Validations::getAndValidateFloat();
 
     // gets the height from the user
     cout << "Please enter a value for the height: " << endl;
 
     // ensures that value entered is positive
-    height = getAndValidateFloat();
+    height = Validations::getAndValidateFloat();
 
     // creates an instance of a prism object
     Prism prism = Prism(length, width, height);

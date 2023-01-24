@@ -14,16 +14,14 @@ using namespace std;
 
 class MenuOptions {
 public:
-    MenuOptions();
-    short int promptUserInput();
-    short int validateMenuOption();
-    void promptAndCalculateTrapezoid();
-    void promptAndCalculateTriangle();
-    void promptAndCalculatePrism();
+    static short int promptUserInput();
+    static void promptAndCalculateTrapezoid();
+    static void promptAndCalculateTriangle();
+    static void promptAndCalculatePrism();
+    static void printAndClearError(bool isMenu = false);
 
 private:
-    void printAndClearError(bool isMenu);
-    float getAndValidateFloat();
+    static float getAndValidateFloat();
 };
 
 
