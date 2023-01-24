@@ -1,8 +1,7 @@
 #include "MenuOptions.h"
+#include "Validations.h"
 
-MenuOptions::MenuOptions() {}
-
-void MenuOptions::printAndClearError(bool isMenu = false)
+void printAndClearError(bool isMenu)
 {
     if(isMenu){
         cout << "Input cannot negative, non-numeric, or out-of-range. Please enter a positive value." << endl;
@@ -17,24 +16,7 @@ void MenuOptions::printAndClearError(bool isMenu = false)
 	// reference: https://cplusplus.com/forum/general/207458/
 }
 
-float MenuOptions::getAndValidateFloat()
-{
-    float input;
-
-	cin >> input;
-
-	// tests that input is positive and does not extend past too many decimal places for floats.
-    // reference https://www.alphacodingskills.com/cpp/notes/cpp-cfenv-fe-overflow.php
-
-	while (input <= 0.00 || (!std::cin)) {
-		printAndClearError();
-		cin >> input;
-	}
-
-    return input;
-}
-
-short int MenuOptions::promptUserInput()
+short int promptUserInput()
 {
     short int userInput;
 
@@ -45,19 +27,7 @@ short int MenuOptions::promptUserInput()
     return userInput;
 }
 
-// reference https://cplusplus.com/forum/beginner/261201/#msg1131559
-short int MenuOptions::validateMenuOption() {
-    short int input;
-    while(true){
-        if (std::cin >> input) { // if the user entered an integer
-            return input;
-        } else {
-            printAndClearError(true);
-        }
-    }
-}
-
-void MenuOptions::promptAndCalculateTrapezoid()
+void promptAndCalculateTrapezoid()
 {
     float base1;
     float base2;
@@ -93,7 +63,7 @@ void MenuOptions::promptAndCalculateTrapezoid()
          << fixed << setprecision(2) << area << endl;
 }
 
-void MenuOptions::promptAndCalculateTriangle()
+void promptAndCalculateTriangle()
 {
     float side1;
     float side2;
@@ -122,7 +92,7 @@ void MenuOptions::promptAndCalculateTriangle()
          << setprecision(2) << hypotenuse << endl;
 }
 
-void MenuOptions::promptAndCalculatePrism()
+void promptAndCalculatePrism()
 {
     float length;
     float width;
