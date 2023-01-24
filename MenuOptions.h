@@ -12,17 +12,12 @@
 
 using namespace std;
 
-class MenuOptions {
-public:
-    static short int promptUserInput();
-    static void promptAndCalculateTrapezoid();
-    static void promptAndCalculateTriangle();
-    static void promptAndCalculatePrism();
-    static void printAndClearError(bool isMenu = false);
-
-private:
-    static float getAndValidateFloat();
-};
+short int promptUserInput();
+void promptAndCalculateTrapezoid();
+void promptAndCalculateTriangle();
+void promptAndCalculatePrism();
+void printAndClearError(bool isMenu = false);
+float getAndValidateFloat();
 
 
 #endif //ASSIGNMENT_1_MENUOPTIONS_H

@@ -1,7 +1,7 @@
 #include "Validations.h"
 #include "MenuOptions.h"
 
-float Validations::getAndValidateFloat()
+float getAndValidateFloat()
 {
     float input;
 
@@ -11,7 +11,7 @@ float Validations::getAndValidateFloat()
     // reference https://www.alphacodingskills.com/cpp/notes/cpp-cfenv-fe-overflow.php
 
     while (input <= 0.00 || !cin) {
-        MenuOptions::printAndClearError();
+        printAndClearError();
         cin >> input;
     }
 
@@ -19,13 +19,13 @@ float Validations::getAndValidateFloat()
 }
 
 // reference https://cplusplus.com/forum/beginner/261201/#msg1131559
-short int Validations::validateMenuOption() {
+short int validateMenuOption() {
     short int input;
     while(true){
         if (std::cin >> input) { // if the user entered an integer
             return input;
         } else {
-            MenuOptions::printAndClearError(true);
+            printAndClearError(true);
         }
     }
 }

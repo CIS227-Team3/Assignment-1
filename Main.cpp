@@ -27,27 +27,27 @@ int main()
     cout << "2. Please enter 2 to calculate the area of a trapezoid." << endl;
     cout << "3. Please enter 3 to calculate the volume of a prism." << endl;
 
-    userInput = Validations::validateMenuOption();
+    userInput = validateMenuOption();
 
     while (userInput != 0)
     {
         switch (userInput)
         {
             case 1:
-                MenuOptions::promptAndCalculateTriangle();
+                promptAndCalculateTriangle();
                 break;
             case 2:
-                MenuOptions::promptAndCalculateTrapezoid();
+                promptAndCalculateTrapezoid();
                 break;
             case 3:
-                MenuOptions::promptAndCalculatePrism();
+                promptAndCalculatePrism();
                 break;
             default:
                 cout << "Input is not a recognized command. Please enter 0 to exit, or 1, 2, or 3." << endl;
                 break;
         }
 
-        userInput = MenuOptions::promptUserInput();
+        userInput = promptUserInput();
     }
 
     cout << "Exiting program. Goodbye!" << endl;

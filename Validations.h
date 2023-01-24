@@ -6,11 +6,7 @@
 
 using namespace std;
 
-class Validations {
-public:
-    static float getAndValidateFloat();
-    static short validateMenuOption();
-};
-
+float getAndValidateFloat();
+short validateMenuOption();
 
 #endif //ASSIGNMENT_1_VALIDATIONS_H
