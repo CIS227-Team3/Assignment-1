@@ -11,9 +11,9 @@ void MenuOptions::printAndClearError(bool isMenu = false)
         cout << "Input cannot be 0, negative, non-numeric, or out-of-range. Please enter a positive value." << endl;
     }
 
-    cin.clear();  // clears error state if the user entered a string or char. 
+    cin.clear();  // clears error state if the user entered a string or char.
 	// reference: https://cplusplus.com/forum/general/207458/
-    cin.ignore(1000, '\n'); // clears the input causing error from stream. 
+    cin.ignore(1000, '\n'); // clears the input causing error from stream.
 	// reference: https://cplusplus.com/forum/general/207458/
 }
 
@@ -22,7 +22,7 @@ float MenuOptions::getAndValidateFloat()
     float input;
 
 	cin >> input;
-    
+
 	// tests that input is positive and does not extend past too many decimal places for floats.
     // reference https://www.alphacodingskills.com/cpp/notes/cpp-cfenv-fe-overflow.php
 
@@ -40,7 +40,7 @@ short int MenuOptions::promptUserInput()
 
     // prompts user to enter command
     cout << "Please enter a command or 0 to exit the program" << endl;
-    cin >> userInput;
+    userInput = validateMenuOption();
 
     return userInput;
 }
@@ -78,7 +78,7 @@ void MenuOptions::promptAndCalculateTrapezoid()
 
     // gets the height from the user
     cout << "Please enter a value for the height: " << endl;
-   
+
     // ensures that value entered is positive
     height = getAndValidateFloat();
 
@@ -101,13 +101,13 @@ void MenuOptions::promptAndCalculateTriangle()
 
     // gets the length of side 1 from the user
     cout << "Please enter a value for side 1: " << endl;
-    
+
     // ensures that value entered is positive
     side1 = getAndValidateFloat();
 
     // gets the length of side 2 from the user
     cout << "Please enter a value for side 2: " << endl;
-    
+
     // ensures that value entered is positive
     side2 = getAndValidateFloat();
 
@@ -131,19 +131,19 @@ void MenuOptions::promptAndCalculatePrism()
 
     // gets the value of the length from the user
     cout << "Please enter a value for length: " << endl;
-    
+
     // ensures that value entered is positive
     length = getAndValidateFloat();
 
     // gets the value of the width from the user
     cout << "Please enter a value for width: " << endl;
-    
+
     // ensures that value entered is positive
     width = getAndValidateFloat();
 
     // gets the height from the user
     cout << "Please enter a value for the height: " << endl;
-    
+
     // ensures that value entered is positive
     height = getAndValidateFloat();
 
